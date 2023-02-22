@@ -1,0 +1,19 @@
+Definicion de Matriz
+```{r}
+Vector1<-c(160,178,181,179,190)
+Vector2<-c(190,189,167,187,162)
+Vector3<-c(177,190,176,175,161)
+Vector4<-c(166,179,183,197,199)
+Vector5<-c(171,182,191,196,200)
+Meses<-c("Enero","Febrero","Marzo","Abril","Mayo","Avg Personal")
+Personas<-c("Karla","Monica","Roberto","Carlos","Andrea","Avg Mensual")
+Matrix_Peso<-rbind(Vector1,Vector2,Vector3,Vector4,Vector5)
+Promedio_Mensual<-colMeans(Matrix_Peso)
+Matrix_Peso<-cbind(Vector1,Vector2,Vector3,Vector4,Vector5,Promedio_Mensual)
+Promedio_Personal<-rowMeans(Matrix_Peso)
+Matrix_Total<-rbind(Matrix_Peso,Promedio_Personal)
+rownames(Matrix_Total)<-Personas
+colnames(Matrix_Total)<-Meses
+Matrix_Total
+```
+
