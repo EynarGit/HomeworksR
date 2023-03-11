@@ -1,0 +1,106 @@
+---
+title: "Funciones propias en R Eynar Rodriguez"
+output: html_notebook
+---
+ La estructura de una funcion en R  debe seguri la siguiente sintaxis:
+ 
+nombre_de_funcion <- function(par1, par2, ...) {
+  cuerpo
+  cuerpo
+  cuerpo
+  cuerpo
+  return(resultado)
+}
+
+Ejemplo #1, Funcion para Convertir Grados Farenheit a Celcius
+Se utilizara la siguiente ecuacion C=(F-32)x5/9
+
+```{r}
+FtC <- function (F){
+  C=(F-32)*5/9
+  return(C)
+}
+FtC(50)
+```
+Ejemplo #2 Funcion para calular el factorial de un numero
+Se utilizara la siguiente ecuacion y=n!
+
+```{r}
+Fac <- function(n){
+  i<-1
+  y<-1
+  while (i<=n){
+    y <- y*i
+    i <-i+1
+  }
+  return(y)
+}
+Fac(6)
+```
+Familia de funciones:
+
+#apply:
+"recibe un valor en forma de matrix, data frame o arreglo multidimensional
+y dependiendo de la funcion devuelve un vector, matriz, data frame con valores
+aplicando la instruccion definida en la funcion"
+
+#Sintaxis:
+#apply(X, MARGIN, FUN)
+
+#lapply:
+"recibe los mismos valores posibles de la funcion apply, pero la diferencia
+es de que devuelve una lista o vector unicamente"
+
+#Sintaxis
+lapply(X, FUN)
+
+sapply
+"es una variacion de lapply, la diferencia es de que devuelve
+un resultado los mas simple posible
+
+#Sintaxis
+sapply(X, FUN)
+
+vapply
+```{r}
+State<- c("California","Florida","Georgia","Illinois","Oregon")
+Temp_Summer_F<- c(80,90,85,80,75)
+Temp_Spring_F<- c(50,65,60,50,50)
+Temp_Autum_F<- c(45,48,38,30,30)
+Temp_Winter_F<- c(8,10,2,-8,-5)
+Year_State_TempF<-data.frame(State,Temp_Spring_F,Temp_Summer_F,Temp_Autum_F,Temp_Winter_F)
+
+```
+Ejemplo apply
+Convertir las temperaturas de las diferentes ciudades de F a C
+
+```{r}
+apply(Year_State_TempF[1:5,2:5],2,FtC)
+
+```
+Ejemplo lapply
+
+```{r}
+lapply(Temp_Winter_F,FtC)
+```
+```{r}
+sapply(Temp_Winter_F,FtC,simplify = TRUE,USE.NAMES = TRUE)
+
+```
+```{r}
+sapply(Temp_Winter_F,FtC,simplify = FALSE,USE.NAMES = TRUE)
+
+```
+
+```{r}
+
+sapply(Temp_Winter_F,FtC,simplify = FALSE,USE.NAMES = FALSE)
+```
+
+```
+
+
+
+
+
+
