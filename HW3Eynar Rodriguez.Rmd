@@ -50,4 +50,8 @@ dataset_result %>%
    mutate(vote_count=votes/fraction_votes) %>%
    arrange(desc(vote_count))
 ```
+```{r}
+ggplot(dataset_result,aes(x=party,y=votes)) +
+  geom_point()
+```
 
